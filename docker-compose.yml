@@ -22,14 +22,14 @@ services:
       - db
   
   frontend:
-    env_file: .env
     build: ./frontend/
+    env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
   
   gateway:
-    build: ./gateway/
+    build: ./nginx/
     env_file: .env
     volumes:
       - static:/static
